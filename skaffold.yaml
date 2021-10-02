@@ -16,14 +16,14 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-    - image: jclapham/client
-      context: client
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: '**/*.js'
-            dest: .
+    # - image: jclapham/client
+    #   context: client
+    #   docker:
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: '**/*.js'
+    #         dest: .
     - image: jclapham/tickets
       context: tickets
       docker:
@@ -42,6 +42,14 @@ build:
             dest: .
     - image: jclapham/expiration
       context: expiration
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: jclapham/payments
+      context: payments
       docker:
         dockerfile: Dockerfile
       sync:

@@ -4,11 +4,7 @@ import mongoose from 'mongoose';
 import { app } from '../app';
 
 declare global {
-    namespace NodeJS {
-        interface Global {
-            signin(): Promise<string[]>;
-        } 
-    }
+    var signin: (id?: string) => string[];
 }
 
 let mongo: any;
