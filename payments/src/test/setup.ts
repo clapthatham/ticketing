@@ -10,6 +10,8 @@ declare global {
 
 jest.mock('../nats-wrapper');
 
+process.env.STRIPE_KEY = 'sk_test_51JgER4Ag07qd1vHXqC1Xd8O2fB2KIb2p4it7k3wd5rkPCez3QV6xNW8IE0ZoV1vbdSFoOhJneiGURueisNgF2S7100YjryXQei'
+
 let mongo: any;
 beforeAll(async () => {
     process.env.JWT_KEY = 'asfaffs';
@@ -38,10 +40,10 @@ afterAll(async () => {
     await mongoose.connection.close();
 });
 
-global.signin = () => {
+global.signin = (id?: string) => {
   //build a JWT payload { id, email }
   const payload = {
-    id: new mongoose.Types.ObjectId().toHexString(),
+    id: id || new mongoose.Types.ObjectId().toHexString(),
     email: 'test@test.com'
   };
 
