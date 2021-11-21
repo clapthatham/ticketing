@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: payments
-          image: jclapham/payments
+          image: gcr.io/ticketing-dev-332818/payments
           env:
             - name: NATS_CLIENT_ID
               valueFrom:
@@ -36,7 +36,6 @@ spec:
                 secretKeyRef: 
                   name: stripe-secret
                   key: STRIPE_KEY
-                  
 ---
 apiVersion: v1
 kind: Service

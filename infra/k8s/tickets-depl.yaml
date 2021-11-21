@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: tickets
-          image: jclapham/tickets
+          image: gcr.io/ticketing-dev-332818/tickets
           env:
             - name: NATS_CLIENT_ID
               valueFrom:
@@ -31,7 +31,6 @@ spec:
                 secretKeyRef: 
                   name: jwt-secret
                   key: JWT_KEY
-                  
 ---
 apiVersion: v1
 kind: Service
